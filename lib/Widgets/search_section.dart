@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:perplexity_clone/Widgets/search_bar_button.dart';
 import 'package:perplexity_clone/theme/colors.dart';
 
 class SearchSection extends StatelessWidget {
@@ -22,29 +23,40 @@ class SearchSection extends StatelessWidget {
         const SizedBox(height: 32),
         Container(
           width: 700,
-          decoration: 
-          BoxDecoration(
-            color: AppColors.searchBar),
+          decoration: BoxDecoration(color: AppColors.searchBar),
           child: Column(
             children: [
               TextField(
                 decoration: InputDecoration(
                   hintText: "Search anything...",
-                  hintStyle: TextStyle(
-                    color: AppColors.textGrey,
-                    fontSize: 16,
-                  ),
-                  border: InputBorder.none
-                  
+                  hintStyle: TextStyle(color: AppColors.textGrey, fontSize: 16),
+                  border: InputBorder.none,
                 ),
               ),
               Row(
                 children: [
-                  
+                  SearchBarButton(
+                    icon: Icons.auto_awesome_outlined,
+                    text: 'Focus'
+                  ),
+                  const SizedBox(width: 12),
+                  SearchBarButton(
+                    icon: Icons.add_circle_outline_outlined,
+                    text: 'Attach'
+                  ),
+                  const Spacer(),
+                  Container(
+                    padding: EdgeInsets.all(9),
+                    decoration: BoxDecoration(
+                      color: AppColors.submitButton,
+                      borderRadius: BorderRadius.circular(40)
+                    ),
+                    child: const Icon(Icons.arrow_forward,color: AppColors.background,size: 16,),
+                  )
                 ],
-              )
-              ],
               ),
+            ],
+          ),
         ),
       ],
     );
